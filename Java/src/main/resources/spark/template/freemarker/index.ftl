@@ -32,9 +32,11 @@
         </form>
     </div>
     <div id = "end" class="hider">
+        <span id = "roomNumber"></span>
+        <br>
         <button type = "button" onclick="end()">End</button>
     </div>
-    <script src = "js/selector.js"></script>
+    <script src="js/selector.js"></script>
     <script src = "js/jquery-3.1.1.js"></script>
 
 </html>

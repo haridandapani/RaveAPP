@@ -59,8 +59,8 @@ public class App {
 
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("*", new HomeGUI(), freeMarker);
-    Spark.post("/setup", new SetupGUI(), freeMarker);
-
+    Spark.post("/setup", new SetupGUI());
+    Spark.post("/rave", new RaveGUI());
   }
 
   public static Map<Integer, Rave> getRooms() {

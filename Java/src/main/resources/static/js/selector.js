@@ -2,6 +2,7 @@ let colors = 2;
 let colorsList = [];
 let iterator = 0;
 let timer;
+let roomNumber;
 document.getElementById('color1').value = generateRandomColor();
 document.getElementById('color2').value = generateRandomColor();
 
@@ -43,12 +44,45 @@ function formSubmit(event){
     document.getElementById("thisForm").style.display = "none";
     document.getElementById("end").style.display = "block";
 
-    timer =  setInterval(looper, 60000 / document.getElementById("frequency").value );
+    timer =  setInterval(looper, 60000 / document.getElementById("frequency").value);
+}
+
+function submitToJava(event){
+    event.preventDefault();
+    colorsList = [];
+    for (let i = 1; i <= colors; i ++){
+        colorsList.push(document.getElementById("color" + i).value);
+    }
+    console.log(colorsList);
+    const postParameters = {
+        colors: colorsList.toString(),
+        frequency: 60000 / document.getElementById("frequency").value,
+      };
+      $.post("/setup", postParameters, response => {
+        const jsonRes = JSON.parse(response);
+        console.log(jsonRes.roomNumber);
+        roomNumber = jsonRes.roomNumber;
+        document.getElementById("thisForm").style.display = "none";
+        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
+        document.getElementById("end").style.display = "block";
+    });
+    
+    timer =  setInterval(loopJava, 10);
 }
 
 function looper(){
     document.body.style.backgroundColor = colorsList[iterator];
     iterator = (iterator + 1) % colors;
+}
+
+function loopJava(){
+    const postParameters = {
+        roomNumber : roomNumber
+    };
+    $.post("/rave", postParameters, response => {
+        const jsonRes = JSON.parse(response);
+        document.body.style.backgroundColor = jsonRes.color;
+    });
 }
 
 function end(){

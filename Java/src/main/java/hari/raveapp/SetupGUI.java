@@ -1,28 +1,33 @@
 package hari.raveapp;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.gson.Gson;
 
-import spark.ModelAndView;
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
-import spark.TemplateViewRoute;
+import spark.Route;
 
-public class SetupGUI implements TemplateViewRoute {
+public class SetupGUI implements Route {
 
   @Override
-  public ModelAndView handle(Request request, Response response) throws Exception {
+  public String handle(Request request, Response response) throws Exception {
 
     int roomNumber = (int) (Math.random() * 100000000);
     QueryParamsMap vars = request.queryMap();
-    vars.value("colorsList");
+    System.out.println(vars.value("colors"));
+    System.out.println(vars.value("frequency"));
+    System.out.println(System.currentTimeMillis());
     // add room to session
-    App.getRooms().put(roomNumber, null);
+    Rave raven = new Rave(Arrays.asList(vars.value("colors").split(",")), 0,
+        Double.valueOf(vars.value("frequency")));
+    App.getRooms().put(roomNumber, raven);
     Map<String, Object> variables = ImmutableMap.<String, Object>builder()
         .put("roomNumber", roomNumber).build();
-    return new ModelAndView(variables, "index.ftl");
+    return new Gson().toJson(variables);
 
   }
 }
