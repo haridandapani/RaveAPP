@@ -43,19 +43,7 @@ function formSubmit(event){
     document.getElementById("thisForm").style.display = "none";
     document.getElementById("end").style.display = "block";
 
-    timer =  setInterval(looper, 60000 / document.getElementById("frequency").value);
-}
-
-function submitToJava(event){
-    event.preventDefault();
-    const postParameters = {
-        colorsList: colorsList,
-        frequency: 60000 / document.getElementById("frequency").value,
-      };
-      $.post("/setup", postParameters, response => {
-        const jsonRes = JSON.parse(response);
-        console.log(jsonRes.roomNumber);
-    });
+    timer =  setInterval(looper, 60000 / document.getElementById("frequency").value );
 }
 
 function looper(){
