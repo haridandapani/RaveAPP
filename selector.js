@@ -2,14 +2,16 @@ let colors = 2;
 let colorsList = [];
 let iterator = 0;
 let timer;
+document.getElementById('color1').value = generateRandomColor();
+document.getElementById('color2').value = generateRandomColor();
+
 function addColor(){
     colors = colors + 1;
-    console.log(colors);
-    console.log(document.getElementById("color1").value);
     let wheel = document.createElement("input");
     wheel.type = "color";
     wheel.name = "color" + colors;
     wheel.id = "color" + colors;
+    wheel.value = generateRandomColor();
     let labeler = document.createElement("label");
     labeler.for = wheel.id;
     labeler.id = "label" + colors;
@@ -38,7 +40,6 @@ function formSubmit(event){
         colorsList.push(document.getElementById("color" + i).value);
     }
     //loop(document.getElementById("frequency").value * 1000 / 60);
-    console.log(document.getElementById("thisForm"));
     document.getElementById("thisForm").style.display = "none";
     document.getElementById("end").style.display = "block";
 
@@ -54,5 +55,9 @@ function end(){
     clearTimeout(timer);
     document.getElementById("thisForm").style.display = "block";
     document.getElementById("end").style.display = "none";
-    document.body.style.backgroundColor = "#FFFFFF";
+    document.body.style.backgroundColor = "lightcoral";
+}
+
+function generateRandomColor(){
+    return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
