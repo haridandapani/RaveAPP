@@ -61,6 +61,7 @@ public class App {
     Spark.get("*", new HomeGUI(), freeMarker);
     Spark.post("/setup", new SetupGUI());
     Spark.post("/rave", new RaveGUI());
+    Spark.post("/setupWithRoom", new SetupWithRoomGUI());
   }
 
   public static Map<Integer, Rave> getRooms() {

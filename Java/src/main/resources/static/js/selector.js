@@ -62,12 +62,34 @@ function submitToJava(event){
         const jsonRes = JSON.parse(response);
         console.log(jsonRes.roomNumber);
         roomNumber = jsonRes.roomNumber;
-        document.getElementById("thisForm").style.display = "none";
+        document.getElementById("former").style.display = "none";
         document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
         document.getElementById("end").style.display = "block";
     });
     
     timer =  setInterval(loopJava, 10);
+}
+
+function joinRoom(event){
+    event.preventDefault();
+    const postParameters = {
+        roomNumber: document.getElementById("roomNo").value
+      };
+      $.post("/setupWithRoom", postParameters, response => {
+        const jsonRes = JSON.parse(response);
+        console.log(jsonRes.roomNumber);
+        if (jsonRes.success){
+            roomNumber = jsonRes.roomNumber;
+            document.getElementById("former").style.display = "none";
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
+            document.getElementById("end").style.display = "block";
+            timer =  setInterval(loopJava, 10);
+        } else{
+            document.getElementById("errorMessage").innerHTML = "No room found with: " + document.getElementById("roomNo").value;
+        }
+    });
+    
+    
 }
 
 function looper(){

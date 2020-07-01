@@ -15,7 +15,7 @@
     <div id = "former">
         <form id = "thisForm" method = "POST" onsubmit= "formSubmit(event)">
             <label for = "frequency">Color changes per minute</label>
-            <input type="number" id = "frequency" name = "frequency" value = "100" step = "any" max = "1000" required>
+            <input type="number" id = "frequency" name = "frequency" value = "100" step = "any" min = "0" max = "1000" required>
             <br>
             <label for = "color1">Color 1</label>
             <input type="color" id = "color1" name = "color1">
