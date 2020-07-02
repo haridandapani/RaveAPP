@@ -16,13 +16,13 @@ function addColor(){
     let labeler = document.createElement("label");
     labeler.for = wheel.id;
     labeler.id = "label" + colors;
-    labeler.innerHTML = "Color " + colors +" ";
+    labeler.innerHTML = "<mark>Color " + colors +"</mark> ";
     let brk = document.createElement("br");
     brk.id = "break"+colors;
     
     document.getElementById("addmore").appendChild(labeler);
     document.getElementById("addmore").appendChild(wheel);
-    document.getElementById("addmore").appendChild(brk); 
+    document.getElementById("addmore").appendChild(brk);  
 }
 
 function removeColor(){
@@ -79,11 +79,11 @@ function joinRoom(event){
         if (jsonRes.success){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
-            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+"";
             document.getElementById("end").style.display = "block";
             timer =  setInterval(loopJava, 40);
         } else{
-            document.getElementById("errorMessage").innerHTML = "No room found with: " + document.getElementById("roomNo").value;
+            document.getElementById("errorMessage").innerHTML = "<mark>No room found with: " + document.getElementById("roomNo").value+"</mark>";
         }
     });
     
