@@ -111,7 +111,7 @@ function end(){
     document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
     timer = null;
-    reCoral();
+    timer = setInterval(reCoral, 2000);
 }
 
 function generateRandomColor(){
