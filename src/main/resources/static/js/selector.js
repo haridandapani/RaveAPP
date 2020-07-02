@@ -56,6 +56,7 @@ function submitToJava(event){
     const postParameters = {
         colors: colorsList.toString(),
         frequency: 60000 / document.getElementById("frequency").value,
+        startTime: Date.now()
       };
       $.post("/setup", postParameters, response => {
         const jsonRes = JSON.parse(response)
@@ -97,7 +98,8 @@ function looper(){
 
 function loopJava(){
     const postParameters = {
-        roomNumber : roomNumber
+        roomNumber : roomNumber,
+        now : Date.now()
     };
     $.post("/rave", postParameters, response => {
         const jsonRes = JSON.parse(response);
@@ -111,7 +113,8 @@ function end(){
     document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
     timer = null;
-    timer = setInterval(reCoral, 2000);
+    reCoral();
+    //timer = setInterval(reCoral, 2000);
 }
 
 function generateRandomColor(){
