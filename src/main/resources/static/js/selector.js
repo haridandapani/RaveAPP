@@ -2,7 +2,7 @@ let colors = 2;
 let colorsList = [];
 let iterator = 0;
 let timer;
-let roomNumber;
+let roomNumber = -1;
 document.getElementById('color1').value = generateRandomColor();
 document.getElementById('color2').value = generateRandomColor();
 
@@ -106,10 +106,10 @@ function loopJava(){
 }
 
 function end(){
-    clearTimeout(timer);
+    clearInterval(timer);
+    roomNumber = -1;
     document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
-    clearTimeout(timer);
     timer = null;
     reCoral();
 }
