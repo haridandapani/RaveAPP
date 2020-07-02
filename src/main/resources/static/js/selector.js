@@ -65,7 +65,7 @@ function submitToJava(event){
         document.getElementById("end").style.display = "block";
     });
     
-    timer =  setInterval(loopJava, 10);
+    timer =  setInterval(loopJava, 40);
 }
 
 function joinRoom(event){
@@ -81,7 +81,7 @@ function joinRoom(event){
             document.getElementById("former").style.display = "none";
             document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
             document.getElementById("end").style.display = "block";
-            timer =  setInterval(loopJava, 10);
+            timer =  setInterval(loopJava, 40);
         } else{
             document.getElementById("errorMessage").innerHTML = "No room found with: " + document.getElementById("roomNo").value;
         }
