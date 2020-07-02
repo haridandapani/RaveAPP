@@ -131,6 +131,7 @@ function end(){
     document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
     timer = null;
+    location.href = "/"
 }
 
 function generateRandomColor(){
