@@ -9,15 +9,15 @@ public class Rave {
   private double frequency;
   private long startTime;
 
-  public Rave(List<String> colorList, long startTime, double frequency) {
+  public Rave(List<String> colorList, int iterator, double frequency) {
     this.colorList = colorList;
     this.length = colorList.size();
     this.frequency = frequency;
-    this.startTime = startTime;
+    this.startTime = System.currentTimeMillis();
   }
 
-  public String getColor(long currentTime) {
-    return colorList.get((int) ((currentTime - startTime) / frequency) % length);
+  public String getColor() {
+    return colorList.get((int) ((System.currentTimeMillis() - startTime) / frequency) % length);
   }
 
 }
