@@ -53,14 +53,12 @@ function submitToJava(event){
     for (let i = 1; i <= colors; i ++){
         colorsList.push(document.getElementById("color" + i).value);
     }
-    console.log(colorsList);
     const postParameters = {
         colors: colorsList.toString(),
         frequency: 60000 / document.getElementById("frequency").value,
       };
       $.post("/setup", postParameters, response => {
-        const jsonRes = JSON.parse(response);
-        console.log(jsonRes.roomNumber);
+        const jsonRes = JSON.parse(response)
         roomNumber = jsonRes.roomNumber;
         document.getElementById("former").style.display = "none";
         document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
@@ -111,7 +109,9 @@ function end(){
     clearTimeout(timer);
     document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
-    setTimeout(reCoral, 2000);
+    clearTimeout(timer);
+    timer = null;
+    reCoral();
 }
 
 function generateRandomColor(){
