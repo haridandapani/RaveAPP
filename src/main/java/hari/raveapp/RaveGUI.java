@@ -17,8 +17,6 @@ public class RaveGUI implements Route {
     QueryParamsMap vars = request.queryMap();
     int roomNumber = Integer.valueOf(vars.value("roomNumber"));
     Rave raven = App.getRooms().get(roomNumber);
-    // TODO: add something to see if the current person is the creator
-    raven.update();
     Map<String, Object> variables = ImmutableMap.<String, Object>builder()
         .put("color", raven.getColor()).build();
     return new Gson().toJson(variables);
