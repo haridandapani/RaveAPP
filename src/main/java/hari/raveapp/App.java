@@ -54,14 +54,16 @@ public class App {
 
   private void runSparkServer() {
     Spark.port(getHerokuAssignedPort());
-    Spark.externalStaticFileLocation("src/main/resources/static");
+    Spark.externalStaticFileLocation("src/main/resources");
     Spark.exception(Exception.class, new ExceptionPrinter());
 
     FreeMarkerEngine freeMarker = createEngine();
-    Spark.get("*", new HomeGUI(), freeMarker);
+
     Spark.post("/setup", new SetupGUI());
     Spark.post("/rave", new RaveGUI());
     Spark.post("/setupWithRoom", new SetupWithRoomGUI());
+    Spark.get("/", new HomeGUI(), freeMarker);
+    Spark.get("/*", new RoomGUI(), freeMarker);
   }
 
   public static Map<Integer, Rave> getRooms() {
