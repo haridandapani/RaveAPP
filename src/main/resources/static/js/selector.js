@@ -96,17 +96,14 @@ function looper(){
 }
 
 function loopJava(){
-    if (roomNumber != -1){
-        const postParameters = {
-            roomNumber : roomNumber
-        };
-        $.post("/rave", postParameters, response => {
-            const jsonRes = JSON.parse(response);
-            document.body.style.backgroundColor = jsonRes.color;
-        });
-    } else{
-        reCoral();
-    }
+    const postParameters = {
+        roomNumber : roomNumber
+    };
+    $.post("/rave", postParameters, response => {
+        const jsonRes = JSON.parse(response);
+        document.body.style.backgroundColor = jsonRes.color;
+    });
+
 }
 
 function end(){
