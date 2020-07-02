@@ -18,10 +18,10 @@ public class SetupGUI implements Route {
 
     int roomNumber = (int) (Math.random() * 100000000);
     QueryParamsMap vars = request.queryMap();
-    System.out.println(vars.value("colors"));
-    System.out.println(vars.value("frequency"));
-    System.out.println(System.currentTimeMillis());
-    // add room to session
+    // System.out.println(vars.value("colors"));
+    // System.out.println(vars.value("frequency"));
+    // System.out.println(System.currentTimeMillis());
+
     Rave raven = new Rave(Arrays.asList(vars.value("colors").split(",")), 0,
         Double.valueOf(vars.value("frequency")));
     App.getRooms().put(roomNumber, raven);

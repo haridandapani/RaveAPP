@@ -109,11 +109,15 @@ function loopJava(){
 
 function end(){
     clearTimeout(timer);
-    document.getElementById("thisForm").style.display = "block";
+    document.getElementById("former").style.display = "block";
     document.getElementById("end").style.display = "none";
-    document.body.style.backgroundColor = "lightcoral";
+    setTimeout(reCoral, 2000);
 }
 
 function generateRandomColor(){
     return '#'+Math.floor(Math.random()*16777215).toString(16);
+}
+
+function reCoral(){
+    document.body.style.backgroundColor = "lightcoral";
 }
