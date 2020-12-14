@@ -18,8 +18,8 @@
     </style>
     <body onload ="indexOnload()">
         <div id = header>
-            <h5><mark>This is a fun webapp that allows your screen to change colors like a disco.</mark></h5>
-            <h5><mark>Please do not use if you have epilepsy or a sensitivity to chnaging colors.</mark></h5>
+            <p><mark>RavebyHari is a fun webapp that allows your screen to change colors like a disco.</mark></p>
+            <p><mark>Please do not use if you have epilepsy or a sensitivity to changing colors.</mark></p>
         </div>
         <div id = "former">
             <form id = "thisForm" method = "POST" onsubmit= "submitToJava(event)">
