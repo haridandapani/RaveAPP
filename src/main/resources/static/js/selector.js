@@ -59,7 +59,6 @@ function submitToJava(event){
         const jsonRes = JSON.parse(response)
         roomNumber = jsonRes.roomNumber;
         document.getElementById("former").style.display = "none";
-        document.getElementById("header").style.display = "none";
         let ref = window.location.href+""+roomNumber;
         document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
         document.getElementById("end").style.display = "block";
@@ -79,7 +78,6 @@ function joinRoom(event){
         if (jsonRes.success){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
-            document.getElementById("header").style.display = "none";
             let ref = window.location.href+""+roomNumber;
             document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
             document.getElementById("end").style.display = "block";
@@ -101,7 +99,6 @@ function joinRoomURL(event){
         if (jsonRes.success){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
-            document.getElementById("header").style.display = "none";
             let ref = window.location.href;
             document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
             document.getElementById("end").style.display = "block";
