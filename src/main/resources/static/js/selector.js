@@ -3,8 +3,6 @@ let colorsList = [];
 let iterator = 0;
 let timer;
 let roomNumber = -1;
-document.getElementById('color1').value = generateRandomColor();
-document.getElementById('color2').value = generateRandomColor();
 
 function addColor(){
     colors = colors + 1;
@@ -61,7 +59,8 @@ function submitToJava(event){
         const jsonRes = JSON.parse(response)
         roomNumber = jsonRes.roomNumber;
         document.getElementById("former").style.display = "none";
-        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber;
+        let ref = window.location.href+""+roomNumber;
+        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
         document.getElementById("end").style.display = "block";
     });
     
@@ -79,15 +78,35 @@ function joinRoom(event){
         if (jsonRes.success){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
-            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+"";
+            let ref = window.location.href+""+roomNumber;
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
             document.getElementById("end").style.display = "block";
             timer =  setInterval(loopJava, 40);
         } else{
             document.getElementById("errorMessage").innerHTML = "<mark>No room found with: " + document.getElementById("roomNo").value+"</mark>";
         }
-    });
-    
-    
+    });    
+}
+
+function joinRoomURL(event){
+    event.preventDefault();
+    const postParameters = {
+        roomNumber: document.getElementById("roomNo").value
+      };
+      $.post("/setupWithRoom", postParameters, response => {
+        const jsonRes = JSON.parse(response);
+        console.log(jsonRes.roomNumber);
+        if (jsonRes.success){
+            roomNumber = jsonRes.roomNumber;
+            document.getElementById("former").style.display = "none";
+            let ref = window.location.href;
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
+            document.getElementById("end").style.display = "block";
+            timer =  setInterval(loopJava, 40);
+        } else{
+            document.getElementById("errorMessage").innerHTML = "<mark>No room found with: " + document.getElementById("roomNo").value+"</mark>";
+        }
+    });    
 }
 
 function looper(){
@@ -115,4 +134,9 @@ function end(){
 
 function generateRandomColor(){
     return '#'+Math.floor(Math.random()*16777215).toString(16);
+}
+
+function indexOnload(){
+    document.getElementById('color1').value = generateRandomColor();
+    document.getElementById('color2').value = generateRandomColor();
 }
