@@ -14,7 +14,7 @@ function addColor(){
     let labeler = document.createElement("label");
     labeler.for = wheel.id;
     labeler.id = "label" + colors;
-    labeler.innerHTML = "<mark>Color " + colors +"</mark> ";
+    labeler.innerHTML = "Color " + colors +" ";
     let brk = document.createElement("br");
     brk.id = "break"+colors;
     
@@ -149,4 +149,26 @@ function generateRandomColor(){
 function indexOnload(){
     document.getElementById('color1').value = generateRandomColor();
     document.getElementById('color2').value = generateRandomColor();
+}
+
+function colorsLoop(theseColors, freq){
+    const postParameters = {
+        colors: theseColors.toString(),
+        frequency: 60000 / freq,
+      };
+      $.post("/setup", postParameters, response => {
+        const jsonRes = JSON.parse(response)
+        roomNumber = jsonRes.roomNumber;
+        document.getElementById("former").style.display = "none";
+        let ref = window.location.href+""+roomNumber;
+        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
+        document.getElementById("end").style.display = "block";
+    });
+    
+    timer =  setInterval(loopJava, 40);
+}
+
+function springtime(){
+    theseColors = ["#ff7cdf", "#7cfff9", "#ff838b", "#52ff07",  "#f803b5", "#ffb777", "#c2c7de"]
+    colorsLoop(theseColors, 60);
 }

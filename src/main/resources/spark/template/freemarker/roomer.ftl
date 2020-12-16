@@ -1,6 +1,7 @@
 <html>
     <meta charset="UTF-8">
     <title>Rave by Hari</title>
+    
     <style>
         body{
             background-color: #f4f6f6;
