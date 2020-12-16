@@ -65,8 +65,8 @@
             <hr>
             <h2>Join an existing rave</h2>
             <form id = "thisForm" method = "POST" onsubmit= "joinRoom(event)">
-                <label for = "roomNo">Room Number to Join</label>
-                <input type="number" id = "roomNo" name = "roomNo" min = "0" step = "1" required>
+                <label for = "roomNo"><h5>Room Number to Join</label>
+                <input type="number" id = "roomNo" name = "roomNo" min = "0" step = "1" required></h5>
                 <input type = "submit" class = "buttoner" value="Join!"><br>
                 <span id = "errorMessage"></span>
             </form>

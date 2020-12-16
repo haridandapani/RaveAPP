@@ -62,6 +62,7 @@ function submitToJava(event){
         let ref = window.location.href+""+roomNumber;
         document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
         document.getElementById("end").style.display = "block";
+        history.pushState({}, null, window.location.href+""+roomNumber);
     });
     
     timer =  setInterval(loopJava, 40);
@@ -74,6 +75,9 @@ document.body.onkeyup = function(e){
         else if (document.getElementById("end").style.display == "none"){
             document.getElementById("end").style.display = "block";
         }
+    }
+    if(e.keyCode == 88){
+        end();
     }
 }
 
