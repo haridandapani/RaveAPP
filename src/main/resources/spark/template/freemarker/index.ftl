@@ -78,7 +78,8 @@
             <button type = "button" class = "buttoner" onclick="rainbow()">Fast Rainbow</button>
             <button type = "button" class = "buttoner" onclick="grays()">Black, White, and Gray</button>
             <button type = "button" class = "buttoner" onclick="usa()">USA</button><br>
-            <button type = "button" class = "buttoner" onclick="turkey()">November</button><br>
+            <button type = "button" class = "buttoner" onclick="turkey()">November</button>
+            <button type = "button" class = "buttoner" onclick="bumblebee()">Bumblebee</button><br>
         </div>
         <div id = "end" class="hider">
             <mark><span id = "roomNumber"></span></mark>

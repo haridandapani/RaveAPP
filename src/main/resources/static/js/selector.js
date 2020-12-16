@@ -95,6 +95,7 @@ function joinRoom(event){
             let ref = window.location.href+""+roomNumber;
             document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
             document.getElementById("end").style.display = "block";
+            history.pushState({}, null, window.location.href+""+roomNumber);
             timer =  setInterval(loopJava, 40);
         } else{
             document.getElementById("errorMessage").innerHTML = "<mark>No room found with: " + document.getElementById("roomNo").value+"</mark>";
@@ -204,4 +205,8 @@ function usa(){
 function turkey(){
    theseColors =  ["#e67e22", "#f39c12", "#f9e79f", "#edbb99", "#f0b27a", "#fad7a0"];
    colorsLoop(theseColors, 100);
+}
+function bumblebee(){
+    theseColors =  ["#000000", "#FFFF00"];
+    colorsLoop(theseColors, 500);
 }
