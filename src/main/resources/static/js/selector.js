@@ -76,7 +76,7 @@ document.body.onkeyup = function(e){
             document.getElementById("end").style.display = "block";
         }
     }
-    if(e.keyCode == 88){
+    if(e.keyCode == 90){
         end();
     }
 }
