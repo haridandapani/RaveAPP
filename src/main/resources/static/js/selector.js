@@ -169,6 +169,35 @@ function colorsLoop(theseColors, freq){
 }
 
 function springtime(){
-    theseColors = ["#ff7cdf", "#7cfff9", "#ff838b", "#52ff07",  "#f803b5", "#ffb777", "#c2c7de"]
+    theseColors = ["#ff7cdf", "#7cfff9", "#ff838b", "#52ff07",  "#f803b5", "#ffb777", "#c2c7de"];
+    colorsLoop(theseColors, 120);
+}
+
+function gloom(){
+    theseColors = ["#130854", "#9a52e2", "#083c7d", "#ce1139", "#c2b177", "#71417c"];
     colorsLoop(theseColors, 60);
+}
+
+function winterHoliday(){
+    theseColors = ["#82e0aa", "#ec7063", "#58d68d", "#cb4335", "#28b463", "#f5b7b1"];
+    colorsLoop(theseColors, 90);
+}
+
+function rainbow(){
+    theseColors = ["#ec7063", "#dc7633", "#f9e79f", "#82e0aa", "#85c1e9", "#a569bd"];
+    colorsLoop(theseColors, 150);
+}
+
+function grays(){
+    theseColors = ["#fdfefe", "#eaeded", "#2c3e50", "#839192", "#abb2b9", "#17202a", "##b2babb"];
+    colorsLoop(theseColors, 90);
+}
+
+function usa(){
+    theseColors = ["#BF0A30", "#FFFFFF", "#002868"];
+    colorsLoop(theseColors, 100);
+}
+function turkey(){
+   theseColors =  ["#e67e22", "#f39c12", "#f9e79f", "#edbb99", "#f0b27a", "#fad7a0"];
+   colorsLoop(theseColors, 100);
 }

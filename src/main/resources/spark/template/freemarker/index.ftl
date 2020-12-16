@@ -1,6 +1,6 @@
 <html>
     <meta charset="UTF-8">
-    <title>Rave by Hari</title>
+    <title>💿 Rave by Hari</title>
     <style>
         body{
             background-color: #f4f6f6;
@@ -28,22 +28,26 @@
 
             color: #fff;
             text-transform: uppercase;
-            font-family: 'Lato', sans-serif;
+            font-family: 'Cooper Black', sans-serif;
         }
         h5{
             font-family: Tahoma, sans-serif;
         }
+        h2{
+            font-family: Cooper Black;
+        }
     </style>
     <body onload ="indexOnload()">
         <div id = "former">
+            <h2>Start a custom rave</h2>
             <form id = "thisForm" method = "POST" onsubmit= "submitToJava(event)">
                 <h5>
-                <label for = "frequency">Color changes per minute</label>
+                <label for = "frequency">Color Changes per Minute</label>
                 <input type="number" id = "frequency" name = "frequency" value = "100" step = "any" min = "0" max = "1000" required>
                 <br>
                 <p></p>
-                <button type = "button" onclick="addColor()">Add color</button>
-                <button type = "button" onclick="removeColor()">Remove color</button><br>
+                <button type = "button" onclick="addColor()">Add Color</button>
+                <button type = "button" onclick="removeColor()">Remove Color</button><br>
                 <p></p>
                 <label for = "color1">Color 1</label>
                 <input type="color" id = "color1" name = "color1">
@@ -59,6 +63,7 @@
             </h5>
             </form>
             <hr>
+            <h2>Join an existing rave</h2>
             <form id = "thisForm" method = "POST" onsubmit= "joinRoom(event)">
                 <label for = "roomNo">Room Number to Join</label>
                 <input type="number" id = "roomNo" name = "roomNo" min = "0" step = "1" required>
@@ -66,8 +71,14 @@
                 <span id = "errorMessage"></span>
             </form>
             <hr>
-            <label>Presets<label><br>
+            <h2>Enjoy one of our rave presets</h2>
             <button type = "button" class = "buttoner" onclick="springtime()">Springtime</button>
+            <button type = "button" class = "buttoner" onclick="gloom()">Gloom</button>
+            <button type = "button" class = "buttoner" onclick="winterHoliday()">Winter Holiday</button><br>
+            <button type = "button" class = "buttoner" onclick="rainbow()">Fast Rainbow</button>
+            <button type = "button" class = "buttoner" onclick="grays()">Black, White, and Gray</button>
+            <button type = "button" class = "buttoner" onclick="usa()">USA</button><br>
+            <button type = "button" class = "buttoner" onclick="turkey()">November</button><br>
         </div>
         <div id = "end" class="hider">
             <mark><span id = "roomNumber"></span></mark>
