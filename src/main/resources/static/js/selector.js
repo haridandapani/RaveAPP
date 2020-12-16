@@ -60,11 +60,21 @@ function submitToJava(event){
         roomNumber = jsonRes.roomNumber;
         document.getElementById("former").style.display = "none";
         let ref = window.location.href+""+roomNumber;
-        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
+        document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
         document.getElementById("end").style.display = "block";
     });
     
     timer =  setInterval(loopJava, 40);
+}
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        if (document.getElementById("end").style.display == "block"){
+            document.getElementById("end").style.display = "none";
+        }
+        else if (document.getElementById("end").style.display == "none"){
+            document.getElementById("end").style.display = "block";
+        }
+    }
 }
 
 function joinRoom(event){
@@ -79,7 +89,7 @@ function joinRoom(event){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
             let ref = window.location.href+""+roomNumber;
-            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
             document.getElementById("end").style.display = "block";
             timer =  setInterval(loopJava, 40);
         } else{
@@ -100,7 +110,7 @@ function joinRoomURL(event){
             roomNumber = jsonRes.roomNumber;
             document.getElementById("former").style.display = "none";
             let ref = window.location.href;
-            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a>";
+            document.getElementById("roomNumber").innerHTML = "Room Number: " + roomNumber+ " | <a href ="+ref+ ">"+ref+"</a> | Spacebar to toggle this block";
             document.getElementById("end").style.display = "block";
             timer =  setInterval(loopJava, 40);
         } else{
