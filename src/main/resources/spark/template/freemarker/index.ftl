@@ -3,7 +3,7 @@
     <title>Rave by Hari</title>
     <style>
         body{
-            background-color: lightcoral;
+            background-color: #f4f6f6;
         }
         .hider {
             display : none;
@@ -32,7 +32,8 @@
                 <br>
                 <button type = "button" onclick="addColor()">Add color</button>
                 <button type = "button" onclick="removeColor()">Remove color</button>
-                <br>
+                <p>Please be warned that this app can have rapidly changing colors.</p>
+                <p>Please do not use if you are epileptic or have any sensitivity to changing colors.<p>
                 <input type = "submit" value="Rave!">
 
             </form>
